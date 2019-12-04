@@ -18,7 +18,21 @@ const Image = () => {
     query {
       placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      imageOne: file(relativePath: { eq: "IMG_3162.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      imageTwo: file(relativePath: { eq: "IMG_8270.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -27,6 +41,8 @@ const Image = () => {
   `)
 
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <Img fluid={data.imageOne.childImageSharp.fluid} />
+  return <Img fluid={data.imageTwo.childImageSharp.fluid} />
 }
 
 export default Image
